@@ -1,0 +1,33 @@
+
+public class ReelPrecision {
+
+	public static void main(String[] args) {
+		
+		float x1,x2,x3;
+		x1=3331720f;// On met le f en fin de variable pour forcer le float
+		x2=0.625f;
+		x3=x1+x2;
+		System.out.println(x3);// Imprécision de 0.125 
+		
+		x1=123456789f;
+		x3=5+x1;
+		x3=x3-x1;
+		System.out.println(x3);// Fail total, ca devrait afficher 5
+		
+		x1=853000000f;
+		x2=7400000f;
+		x3=x1+x2;
+		System.out.println(x3);// Works perfectly
+		
+		x1=0.00000000000853f;
+		x2=0.000000000000074f;
+		x3=x1+x2;
+		System.out.println(x3);// légère imprécision
+		
+		x1=0.00000000000853f;
+		x2=0.000000000000074f;
+		x3=10.0f+x1+x2;
+		System.out.println(x3);// On laisse tombé 8.604E-12
+	}
+
+}
