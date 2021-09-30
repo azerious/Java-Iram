@@ -28,6 +28,36 @@ public class ReelPrecision {
 		x2=0.000000000000074f;
 		x3=10.0f+x1+x2;
 		System.out.println(x3);// On laisse tombé 8.604E-12
+		
+		
+		System.out.println("On test maintenant avec des reels et pas des float");
+		
+		
+		double x1dbl,x2dbl,x3dbl;
+		x1dbl=3331720;
+		x2dbl=0.625;
+		x3dbl=x1dbl+x2dbl;
+		System.out.println(x3dbl);
+		
+		x1dbl=123456789;
+		x3dbl=5+x1dbl;
+		x3dbl=x3dbl-x1dbl;
+		System.out.println(x3dbl);
+		
+		x1dbl=853000000;
+		x2dbl=7400000;
+		x3dbl=x1dbl+x2dbl;
+		System.out.println(x3dbl);
+		
+		x1dbl=0.00000000000853;
+		x2dbl=0.000000000000074;
+		x3dbl=x1dbl+x2dbl;
+		System.out.println(x3dbl);
+		
+		x1dbl=0.00000000000853;
+		x2dbl=0.000000000000074;
+		x3dbl=10.0+x1dbl+x2dbl;
+		System.out.println(x3dbl);
 	}
 
 }
