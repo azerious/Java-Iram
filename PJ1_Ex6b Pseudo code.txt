@@ -1,0 +1,47 @@
+Ex6_b
+
+PSEUDO CODE
+
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	reel : dblNetPrice <- 0.0
+	reel : TVAValue <- 0.0
+	
+
+Instructions : 
+	
+    TVAValue <- 21.0
+	
+	dblNetPrice  <- getUserNetPriceInput()
+	
+	Afficher("Pour un prix net de " + dblNetPrice + " € et une TVA de " + TVAValue + " %, le coût de la TVA s’élève à " + VATCostCompute(dblNetPrice, TVAValue) + " €")
+
+	
+Fin
+
+Fonction getUserNetPriceInput() : reel
+
+Declaration : 
+	Variables locales :
+	reel : netPrice <- 0.0
+	
+	Afficher("Entrez le prix net")
+	lire netPrice
+	
+	RETOURNER netPrice
+
+Fin 
+
+
+
+Fonction VATCostCompute(reel netPrice, reel TVAValue) : reel
+
+DEBUT
+
+RETOURNE TVAValue*netPrice / (100 + TVAValue)
+
+Fin 

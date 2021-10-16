@@ -1,0 +1,78 @@
+Ex5-b
+
+PSEUDO CODE:
+
+Procedure Main()
+
+DEBUT 
+
+Instructions :
+	AfficherMontantTVA(121.0,21.0)
+	AfficherMontantTVA(85.5,12.5)
+
+Fin
+
+
+PROCEDURE AfficherMontantTVA(reel prixNet, reel tauxTVA)
+
+DEBUT
+
+Declaration :
+
+	Variables locales :
+	reel : montantTVA <- 0.0
+
+Instructions : 
+	montantTVA <- prixNet - prixNet/(1+tauxTVA/100)
+
+	Afficher("Pour un prix net de " + prixNet + " € et une TVA de " + tauxTVA + " %, le coût de la TVA s’élève à " + montantTVA + " €")
+
+FIN PROCEDURE
+
+
+===================================================================================================================================================================
+
+Ex5-c
+
+PSEUDO CODE
+
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	reel : prixNet <- 0.0
+	reel : tauxTVA <- 0.0
+
+Instructions : 
+	prixNet <- 121.0
+	tauxTVA <- 21.0
+	
+	Afficher("Pour un prix net de " + prixNet + " € et une TVA de " + tauxTVA + " %, le coût de la TVA s’élève à " + CalculMontantTVA + " €")
+	
+Instructions : 
+	prixNet <- 85.5
+	tauxTVA <- 12.5
+	
+	Afficher("Pour un prix net de " + prixNet + " € et une TVA de " + tauxTVA + " %, le coût de la TVA s’élève à " + CalculMontantTVA + " €")
+
+Fin
+
+
+Fonction CalculMontantTVA(reel prixNet, reel tauxTVA) : reel
+
+DEBUT
+
+Declaration :
+
+	Variables locales :
+	reel : montantTVA <- 0.0
+
+Instructions : 
+	montantTVA <- prixNet - prixNet/(1+tauxTVA/100)
+
+
+RETOURNE montantTVA
+
+Fin fonction
