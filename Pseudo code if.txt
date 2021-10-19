@@ -1,0 +1,5 @@
+SI intNumTable < 1 OU intNumTable > 20 ALORS
+Afficher "N° de table incorrect"
+SINON
+Afficher "Vous avez entré le N° de table" + intNumTable
+FIN SI
