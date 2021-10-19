@@ -25,9 +25,13 @@ Fin
 
 Fonction getUserNetPriceInput() : reel
 
+DEBUT
+
 Declaration : 
 	Variables locales :
 	reel : netPrice <- 0.0
+	
+Instructions :
 	
 	Afficher("Entrez le prix net")
 	lire netPrice

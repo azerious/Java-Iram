@@ -15,27 +15,24 @@ public class Ex9 {
 	}// Fin Main
 
 	public static int getAndCheckTableNumber(int NUM_MAX_TABLE) {
-		int intNumTable = 0;
+		int intNumTable = -1;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Entrez le N° de table");
 		intNumTable = sc.nextInt();
 
-		if (intNumTable >= 1 && intNumTable <= NUM_MAX_TABLE) {
-			return intNumTable;
-		} else if (intNumTable > NUM_MAX_TABLE) {
+		if (intNumTable > NUM_MAX_TABLE) {
 			System.out.println("Saisie incorrecte ! Le N° table le plus élevé est " + NUM_MAX_TABLE
 					+ ". Contactez l’administrateur du programme si vous souhaitez augmenter ce nombre");
 			return -1;
-		} // fin else if 1
+		} // fin if
 		else if (intNumTable < 1) {
 			System.out.println("Saisie incorrecte ! Le N° de table doit être supérieur ou égal à 1");
 			return -1;
-		} // Fin else if 2
+		} // Fin else if
 		else {
-			return -1;
-		} // Fin else
-
+			return intNumTable;
+		}// Fin else
 	}// Fin getAndCheckTableNumber
 
 }

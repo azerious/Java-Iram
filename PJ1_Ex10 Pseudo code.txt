@@ -1,0 +1,54 @@
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+	Constantes : 
+	reel : VAT_POURCENT_1 <- 6.0
+	reel : VAT_POURCENT_2 <- 12.0
+	reel : VAT_POURCENT_3 <- 21.0
+	
+	Variables locales :
+	reel : dblBrutPrice <- 0.0
+	reel : VAT <- 21.0
+	
+Instructions : 
+
+	VAT <- getVATChoice(VAT_POURCENT_1, VAT_POURCENT_2, VAT_POURCENT_3)
+	
+	SI VAT <> -1.0 ALORS
+		dblBrutPrice <- Utilities.getUser_doubleInput("Veuillez entrer votre montant brut")
+		Afficher ("Pour un prix brut de " + dblBrutPrice + "€, le prix net est de " + Utilities.CalculerPrixBrut(dblBrutPrice, VAT) + "€ (TVA " + VAT + "%)")
+	Fin SI
+	
+Fin Main()
+
+Fonction getVATChoice(reel VAT_POURCENT_1, reel VAT_POURCENT_2, reel VAT_POURCENT_3) : reel
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	entier : userChoice <- 3
+	
+Instructions :
+
+	Afficher ("Pour un taux de TVA de " + VAT_POURCENT_1 + "% tapez 1, 2 pour " + VAT_POURCENT_2 + "% et 3 pour " + VAT_POURCENT_3 + "%")
+	lire userChoice
+	
+	SI intChoice = 1 ALORS
+		RETOURNER VAT_POURCENT_1
+		
+	SINON SI intChoice = 2 ALORS
+		RETOURNER VAT_POURCENT_2
+		
+	SINON SI intChoice = 3
+		RETOURNER VAT_POURCENT_3
+	
+	SINON
+	Afficher ("Saisie du taux incorrecte")
+	RETOURNER -1.0
+	
+	Fin SI
+	
+Fin getVATChoice()

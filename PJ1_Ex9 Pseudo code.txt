@@ -1,0 +1,49 @@
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+	Constantes : 
+	entier : NUM_MAX_TABLE <- 20
+	
+	Variables locales :
+	entier : isTableGood <- 0
+	
+Instructions : 
+	
+	isTableGood  <- getAndCheckTableNumber(NUM_MAX_TABLE)
+	
+	SI isTableGood <> -1 ALORS
+		Afficher ("Vous avez entré le numéro de table " + isTableGood)
+	
+	Fin SI
+
+Fin Main()
+
+Fonction getAndCheckTableNumber(entier NUM_MAX_TABLE) : entier
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	entier : intNumTable <- -1
+	
+Instructions :
+	
+	Afficher ("Entrez le N° de table")
+	lire intNumTable
+			
+	SI intNumTable > NUM_MAX_TABLE ALORS
+		Afficher ("Saisie incorrecte ! Le N° table le plus élevé est " + NUM_MAX_TABLE + ". Contactez l’administrateur du programme si vous souhaitez augmenter ce nombre")
+		RETOURNER -1
+		
+	SINON SI intNumTable < 1 ALORS
+		Afficher ("Saisie incorrecte ! Le N° de table doit être supérieur ou égal à 1")
+		RETOURNER -1
+		
+	SINON
+		RETOURNER intNumTable
+	
+	Fin SI
+
+Fin getAndCheckTableNumber()

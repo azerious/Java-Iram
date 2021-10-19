@@ -24,6 +24,8 @@ Fin
 
 Fonction getUserNetPriceInput() : reel
 
+DEBUT
+
 Declaration : 
 	Variables locales :
 	reel : netPrice <- 0.0
@@ -37,9 +39,13 @@ Fin
 
 Fonction getUserVATInput() : reel
 
+DEBUT
+
 Declaration : 
 	Variables locales :
 	reel : VATValue <- 0.0
+
+Instructions :
 	
 	Afficher("Entrez le taux de TVA")
 	lire VATValue
