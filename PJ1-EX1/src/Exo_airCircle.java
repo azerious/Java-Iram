@@ -1,30 +1,18 @@
-import java.util.Scanner;
-
 public class Exo_airCircle {
 
-		public static void main(String[] args) {
-
-			double dblRayon = 0.0;
-
-			dblRayon = getUserRayon();
-
-			System.out.println("L'air du cercle de rayon " + dblRayon +  " est de " + CalculerAirCercle(dblRayon) + "m²");
-		}
+	public static void main(String[] args) {
 		
-		public static double getUserRayon() {
-			double rayon = 0.0;
+		double dblRayon = 0.0;
+		
+		dblRayon = Utilities.getUserMultipleInputDouble("Entrez le rayon du cercle en m");
 
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Entrez le rayon du cercle en m");
-			rayon = sc.nextDouble();
+		System.out.println("L'air du cercle de rayon " + dblRayon + " est de " + CalculerAirCercle(dblRayon) + "m²");
+	}
 
-			return rayon;
-		}
+	public static double CalculerAirCercle(double dblRayon) {
 
-		public static double CalculerAirCercle(double dblRayon) {
-
-			return Math.PI*Math.pow(dblRayon,2);
-
-		}
+		return Math.PI * Math.pow(dblRayon, 2);
 
 	}
+
+}

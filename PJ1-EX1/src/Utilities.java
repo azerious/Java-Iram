@@ -3,17 +3,67 @@ import java.util.Scanner;
 public class Utilities {
 
 	/**
-	 * Permet d'envoyer un texte libre en paramètre en lecture
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un réel
 	 * 
 	 * @param question Phrase libre que l'on envoie dans le Scanner
 	 * @return
 	 */
-	public static double getUser_doubleInput(String question) {// public rend la fonction utilisable dans d'autres class
+	public static double getUserMultipleInputDouble(String question) {// public rend la fonction utilisable dans d'autres class
 		double value = 0.0;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println(question);
 		value = sc.nextDouble();
+
+		return value;
+	}
+
+	
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un entier
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return
+	 */
+	public static int getUserMultipleInputInteger(String question) {
+		int value = 0;
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println(question);
+		value = sc.nextInt();
+
+		return value;
+	}
+	
+	
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner une phrase
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return
+	 */
+	public static String getUserMultipleInputString(String question) {
+		String value = "";
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println(question);
+		value = sc.nextLine();
+
+		return value;
+	}
+	
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un boolean
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return
+	 */
+	public static boolean getUserMultipleInputBoolean(String question) {
+		boolean value = false;
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println(question);
+		value = sc.nextBoolean();
 
 		return value;
 	}
@@ -24,7 +74,7 @@ public class Utilities {
 	 * @param TVA Taux tva (en %)
 	 * @return
 	 */
-	public static double CalculerPrixNet(double prixBrut, double TVA) {
+	public static double ComputeNetPrice(double prixBrut, double TVA) {
 
 		return prixBrut*(TVA/100+1);
 	}

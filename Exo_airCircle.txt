@@ -10,28 +10,11 @@ Declaration :
 	Variables locales :
 	reel : dblRayon <- 0.0
 	
-
 Instructions : 
 	
-	dblRayon  <- getUserRayon()
-	
-	Afficher("L'air du cercle de rayon " + dblRayon + "est de " + CalculerAirCercle(dblRayon) + "m²")
-
+	dblRayon  <- Utilities.getUser_doubleInput("Entrez le rayon du cercle en m");
 	
 Fin
-
-Fonction getUserRayon() : reel
-
-Declaration : 
-	Variables locales :
-	reel : rayon <- 0.0
-	
-	Afficher("Entrez le rayon du cercle en m")
-	lire rayon
-	
-	RETOURNER rayon
-
-Fin 
 
 Fonction CalculerAirCercle(reel rayon) : reel
 

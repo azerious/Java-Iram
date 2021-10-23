@@ -1,0 +1,120 @@
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+	Variables locales : 
+	
+	chaine de caracteres : conso1 <- "Eau plate"
+	chaine de caracteres : conso2 <- "Coca Cola"
+	chaine de caracteres : conso3 <- "Bière Pression"
+	chaine de caracteres : conso4 <- "Café long"
+	
+	reel : conso1Price <- 3.00
+	reel : conso2Price <- 3.00
+	reel : conso3Price <- 2.80
+	reel : conso4Price <- 2.90
+	
+	entier : conso <- 0
+	booléen : happyHour <- faux
+	
+Instructions : 
+
+	conso <- getUser_input()
+	
+	SI conso <> -1 ALORS
+		happyHour <- checkAnswer()
+		SELON conso
+			Valeur 1 :
+				SI happyHour = vrai ALORS
+					RETOURNER Afficher("Prix de la consommation : " + conso1 + " : " + conso1Price/2 + "€")
+				SINON
+					RETOURNER Afficher("Prix de la consommation : " + conso1 + " : " + conso1Price + "€")
+				Fin SI
+			
+			Valeur 2 :
+				SI happyHour = vrai ALORS
+					RETOURNER Afficher("Prix de la consommation : " + conso2 + " : " + conso2Price/2 + "€")
+				SINON
+					RETOURNER Afficher("Prix de la consommation : " + conso2 + " : " + conso2Price + "€")
+				Fin SI
+				
+			Valeur 3 :
+				SI happyHour = vrai ALORS
+					RETOURNER Afficher("Prix de la consommation : " + conso3 + " : " + conso3Price/2 + "€")
+				SINON
+					RETOURNER Afficher("Prix de la consommation : " + conso3 + " : " + conso3Price + "€")
+				Fin SI
+				
+			Valeur 4 :
+				SI happyHour = vrai ALORS
+					RETOURNER Afficher("Prix de la consommation : " + conso4 + " : " + conso4Price/2 + "€")
+				SINON
+					RETOURNER Afficher("Prix de la consommation : " + conso4 + " : " + conso4Price + "€")
+				Fin SI
+		Fin SELON
+	Fin SI
+	
+Fin Main()
+
+Fonction getUser_input() : int
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	entier : userChoice <- 0
+	
+Instructions :
+
+	Afficher ("Entrez le numéro de la consomation (entre 1 et 4)")
+	lire userChoice
+	
+	SELON userChoice
+	Valeur 1 :
+		RETOURNER 1
+		
+	Valeur 2 :
+		RETOURNER 2
+		
+	Valeur 3 :
+		RETOURNER 3
+		
+	Valeur 4 :
+		RETOURNER 4
+	
+	AUTREMENT
+	Afficher ("N° non référencé")
+	RETOURNER -1
+	
+	Fin SELON
+	
+Fin getUser_input()
+
+Fonction checkAnswer() : booléen
+
+DEBUT
+
+Declarations :
+		
+		Variables locales : 
+		chaine de caracteres : happyHour <- "N"
+Instructions :
+
+	Afficher ("Happy Hour ? Y/N")
+	lire happyHour (forcer en majuscule)
+	
+	SELON happyHour
+	Valeur "Y" :
+		RETOURNER vrai
+		
+	Valeur "N" :
+		RETOURNER faux
+	
+	AUTREMENT
+	Afficher ("Réponse incorrecte, par défaut le tarif non Happy hour est appliqué")
+	RETOURNER faux
+	
+	Fin SELON
+
+Fin checkAnswer()
