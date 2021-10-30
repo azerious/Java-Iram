@@ -16,6 +16,7 @@ public class Ex11 {
 		double conso4Price = 2.90;
 
 		int conso = 0;
+		
 		boolean happyHour = false;
 
 		conso = getUser_input();

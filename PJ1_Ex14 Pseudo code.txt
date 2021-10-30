@@ -1,0 +1,54 @@
+Ex 14
+
+Variables Globales : 
+	entier Stock[][] <- [(19,92),(6,16),(14,27),(4,72)]
+	chaine Names[] <- ["Eau Plate", "Coca Cola", "Bière pression", "Café long"]
+
+Procedure main() 
+
+DEBUT
+
+Declarations :
+	
+	Constantes :
+		entier : NUM_MIN <- 1, NUM_MAX <- 4
+
+	Variables locales :
+		entier : choixConso <- -1
+		entier : nombreConso <- 0
+		entier : validation <- -1
+
+Instructions :
+
+		AFFICHER(Names[0] + " N°1 - emplacement : " + Stock[0][0] + " quantité en stock : " + Stock[0][1])
+		AFFICHER(Names[1] + " N°2 - emplacement : " + Stock[1][0] + " quantité en stock : " + Stock[1][1])
+		AFFICHER(Names[2] + " N°3 - emplacement : " + Stock[2][0] + " quantité en stock : " + Stock[2][1])
+		AFFICHER(Names[3] + " N°4 - emplacement : " + Stock[3][0] + " quantité en stock : " + Stock[3][1])
+		
+		
+		choixConso <- Utilities.getUserInput_WithMinMax("Entrez le N° de consommation", NUM_MIN, NUM_MAX)
+
+		SI choixConso <> -1 ALORS
+
+			nombreConso <- Utilities.getUserMultipleInputInteger("Entrez le nombre d'unité consommées pour " + Names[choixConso-1] + ". Quantité actuellement en stock : " + Stock[choixConso-1][1] + ", emplacement : " + Stock[choixConso -1][0])
+			SI nombreConso >= 0 . nombreConso <= Stock[choixConso-1][1] ALORS
+				Stock[choixConso-1][1] = Stock[choixConso-1][1] - nombreConso
+			SINON
+				validation <- Utilities.checkAnswer("Erreur de saisie ou de quantité en stock pour " + Names[choixConso-1] + "! Annuler ou Mettre à Zero le stock. A/Z", "Z")
+					SI (validation) ALORS
+						Stock[choixConso-1][1] = 0
+					SINON
+						AFFICHER("Modification annulée")
+					Fin SI
+			Fin SI
+		
+		SINON
+			AFFICHER("N° non référencé.")
+		Fin SI
+		
+		AFFICHER(Names[0] + " N°1 - emplacement : " + Stock[0][0] + " quantité en stock : " + Stock[0][1])
+		AFFICHER(Names[1] + " N°2 - emplacement : " + Stock[1][0] + " quantité en stock : " + Stock[1][1])
+		AFFICHER(Names[2] + " N°3 - emplacement : " + Stock[2][0] + " quantité en stock : " + Stock[2][1])
+		AFFICHER(Names[3] + " N°4 - emplacement : " + Stock[3][0] + " quantité en stock : " + Stock[3][1])
+		
+Fin Main()

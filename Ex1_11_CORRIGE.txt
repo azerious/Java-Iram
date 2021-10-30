@@ -1,0 +1,111 @@
+Ex1_11
+
+Fonction getUser_intInput(Chaîne txtInvit,Entier :  min, Entier : max) : entier
+		
+	Variables locales :
+		
+		entier intInput <- 0
+				
+	Instructions :
+			
+		Afficher txtInvit
+                Lire intInput
+	
+		SI intInput < min OR intInput > max
+			
+			afficher "Saisie incorrecte"
+			retourne -1
+			
+		SINON
+		
+			retourne intInput
+                FIN SI
+		
+FIN Fonction
+
+Fonction checkAnswer (chaine txtQuestion, chaine txtReponse) : boolean
+
+	Variables locales
+        
+        chaine : answer
+
+	Instructions
+	
+		afficher (txtQuestion)
+		lire chaine answer 
+		
+                retourner  (answer = txtReponse)
+	
+FIN Fonction
+
+MAIN()
+
+	Constante entier NUM_MAX <- 1, NUM_MIN <- 4
+	Constante reel : dblDrink_1 <- 3.00 , dblDrink_2 <- 3.00 , dblDrink_3 <- 2.80 , dblDrink_4 <- 2.90
+        Constante chaine : Drink_1 <- "Eau Plate" , Drink_2 <- "Coca Cola"  , Drink_3 <- "Bière pression" , Drink_4 <- "Café long"
+        Constante réel PCT_REMISE_HAPPY_HOUR <-50.0
+
+	Variables locales
+	
+		entier : choixConso <- -1
+		reel dblDrink <- 0.0		
+		boolean bDrinkChoiceOk <- false
+		reel discount <- 0.0
+		Chaine drinkName <- ""		
+	
+	Instructions
+		
+		choixConso <- getUser_intInput("Entrez le N° de consommation", 1, 4)
+	
+		SELON choixConso
+			
+			Valeur 1
+			
+				dblDrink <- dblDrink_1
+				drinkName <- Drink_1
+				bDrinkChoiceOk <- true
+			
+			Valeur 2
+			
+				dblDrink <- dblDrink_2
+				drinkName <- Drink_2
+				bDrinkChoiceOk <- true
+			
+			Valeur 3
+			
+				dblDrink <- dblDrink_3
+				drinkName <- Drink_3
+				bDrinkChoiceOk <- true
+				
+			Valeur 4		
+				dblDrink <- dblDrink_4
+				drinkName <- Drink_4
+				bDrinkChoiceOk <- true
+			
+			autrement
+				
+				afficher ("N° non référencé.")
+                        FIN SELON
+	
+		SI bDrinkChoiceOk ALORS
+		
+								
+			SI checkAnswer("Happy Hour? Y/N","Y") = VRAI ALORS
+					
+				discount <- PCT_REMISE_HAPPY_HOUR/100
+		
+			SINON
+					
+				discount <- 1
+				
+			FIN SI
+							
+			dblDrink <- dblDrink x discount
+					
+			Afficher "Prix de la consommation " + drinkName + " : " + dblDrink + " €"
+		
+		FIN SI
+	
+FIN MAIN
+
+

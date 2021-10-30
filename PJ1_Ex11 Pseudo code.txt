@@ -84,8 +84,8 @@ Instructions :
 		RETOURNER 4
 	
 	AUTREMENT
-	Afficher ("N° non référencé")
-	RETOURNER -1
+		Afficher ("N° non référencé")
+		RETOURNER -1
 	
 	Fin SELON
 	
@@ -112,9 +112,8 @@ Instructions :
 		RETOURNER faux
 	
 	AUTREMENT
-	Afficher ("Réponse incorrecte, par défaut le tarif non Happy hour est appliqué")
-	RETOURNER faux
-	
+		Afficher ("Réponse incorrecte, par défaut le tarif non Happy hour est appliqué")
+		RETOURNER faux
 	Fin SELON
 
 Fin checkAnswer()

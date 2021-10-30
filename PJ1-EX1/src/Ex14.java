@@ -1,5 +1,5 @@
 
-public class Test {
+public class Ex14 {
 
 	static int Stock[][] = { { 19, 92 }, { 6, 16 }, { 14, 27 }, { 4, 72 } };
 	static String Names[] = { "Eau Plate", "Coca Cola", "Bière pression", "Café long" };

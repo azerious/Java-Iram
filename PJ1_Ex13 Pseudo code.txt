@@ -1,0 +1,36 @@
+Ex 13
+
+
+Procedure main() 
+
+DEBUT
+
+Declarations :
+	
+	Constantes :
+		chaine : Names <- [Eau Plate, Coca Cola, Bière pression, Café long]
+		réel : Prices <- [3.00, 3.00, 2.80, 2.90]
+		réel : PCT_REMISE_HAPPY_HOUR <- 50.0
+		entier : NUM_MIN <- 1, NUM_MAX <- 4
+
+	Variables locales :
+		entier : choixConso <- -1
+		réel : discount <- 0.0
+
+		choixConso <- Utilities.getUserInput_WithMinMax("Entrez le N° de consommation", NUM_MIN, NUM_MAX)
+
+		SI choixConso <> -1 ALORS
+
+			SI Utilities.checkAnswer("Happy Hour? Y/N", "Y") ALORS
+				discount = PCT_REMISE_HAPPY_HOUR / 100
+			SINON
+				discount = 1
+			Fin SI
+
+		AFFICHER ("Prix de la consommation " + Names[choixConso - 1] + " : " + Prices[choixConso - 1] * discount + " €")
+		
+		SINON
+			AFFICHER("N° non référencé.")
+		Fin SI
+		
+Fin Main()
