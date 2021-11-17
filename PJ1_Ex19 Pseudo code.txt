@@ -1,0 +1,42 @@
+Ex 19
+
+Déclarations :
+
+	Variables globales : 
+	chaine Names[] <- [liste dans le cours] 
+	reel NetPrices[] <- [liste dans le cours]
+
+
+Procédure Main()
+
+DEBUT
+
+Déclarations :
+		
+	Variables locales :
+	entier Order[][] <- [liste dans le cours]
+
+Instructions :
+	
+	previewOrder(Order)
+	
+Fin Main()
+
+
+Procédure previewOrder(entier Order[][])
+
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+	entier : i <- 0
+
+Instructions :
+
+	TANT QUE (Order[0][i] <> 0 . Order[i][0] <> 0)
+		Afficher (Name[Order[i][0]-1] + " " + NetPrices[Order[i][0]-1] + " " + Order[i][1] + " " + Order[i][1] * NetPrices[Order[i][0]-1])
+		i <- i+1
+	Fin TANT QUE
+	
+fin previewOrder()

@@ -13,7 +13,7 @@ public class Ex13 {
 		int choixConso = -1;
 		double discount = 0.0;
 
-		choixConso = Utilities.getUserInput_WithMinMax("Entrez le N° de consommation", NUM_MIN, NUM_MAX);
+		choixConso = Utilities.getUserInputInteger("Entrez le N° de consommation", NUM_MIN, NUM_MAX);
 
 		 if (choixConso != -1) {
 

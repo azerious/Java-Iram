@@ -1,0 +1,42 @@
+Ex 16
+
+Procédure Main()
+
+DEBUT
+
+Déclarations :
+		
+	Variables locales :
+	entier : stock <- 100
+
+Instructions :
+	
+	consumeStock(stock)
+	
+Fin Main()
+
+
+Procédure consumeStock(entier stock) : entier
+
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+	entier : value <- 0
+
+Instructions :
+
+	REPETER
+		Afficher ("Entrez le nombre d'unités consomées")
+		Lire value
+			SI(value > stock) ALORS
+				Afficher ("saisie incorrecte")
+			SINON 
+				stock = stock - value
+				Afficher ("Nombre d'unité en stock" + stock)
+	TANT QUE (stock > 0)
+	
+	Afficher ("Stock à 0") 
+
+fin consumeStock()

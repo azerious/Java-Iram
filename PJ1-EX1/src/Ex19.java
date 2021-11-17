@@ -1,5 +1,5 @@
 
-public class Test {
+public class Ex19 {
 
 	final static String Names[] = { "Spa reine 25 ", "Bru plate 50", "Bru pét 50", "Pepsi", "Spa orange",
 			"Schweppes Tonic", "Schweppes Agr", "Ice Tea", "Ice Tea Pêche", "Jus d'orange Looza", "Cécémel", "Red Bull",
@@ -25,8 +25,9 @@ public class Test {
 		int i = 0;
 
 		while (Order[i][0] != 0 && Order[i][1] != 0) {
-			System.out.println("Consomation : " + Names[Order[i][0] - 1] + " // Prix net : " + NetPrices[Order[i][0] - 1]
-					+ "€ // Quantité : " + Order[i][1] + " // Prix Total : " + Order[i][1] * NetPrices[Order[i][0] - 1] + "€");
+			System.out.println("Consomation : " + Names[Order[i][0] - 1] + " // Prix net : "
+					+ NetPrices[Order[i][0] - 1] + "€ // Quantité : " + Order[i][1] + " // Prix Total : "
+					+ Order[i][1] * NetPrices[Order[i][0] - 1] + "€");
 			i++;
 		}
 	}

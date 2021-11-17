@@ -4,7 +4,7 @@ public class Exo_airCircle {
 		
 		double dblRayon = 0.0;
 		
-		dblRayon = Utilities.getUserMultipleInputDouble("Entrez le rayon du cercle en m");
+		dblRayon = Utilities.getUserInputDouble("Entrez le rayon du cercle en m");
 
 		System.out.println("L'air du cercle de rayon " + dblRayon + " est de " + CalculerAirCercle(dblRayon) + "m²");
 	}

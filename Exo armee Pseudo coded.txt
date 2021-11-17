@@ -1,0 +1,50 @@
+Exo armée
+Variables Globales : 
+
+	Constante :
+	entier : AGE_MIN <- 18
+	entier : AGE_MAX <- 34
+	reel : ACUITY_MIN <- 8.0
+	
+Procedure Main()
+
+DEBUT
+
+Declaration : 
+
+	Variables locales :
+	chaine : name <- ""
+		
+Instructions : 
+
+	name <- Utilities.getUserInputString("- Quel est votre nom ?")		
+	Afficher(name + " : " + isSelected(age, nationality, speakingFrench, speakingDutch, visualAcuity) ? "OK" : "Not OK")
+	
+Fin Main()
+
+Fonction isSelected(entier age, booleen nationality, booleen speakingFrench, booleen speakingDutch, reel visualAcuity) : booleen
+
+DEBUT
+
+Declaration : 
+	Variables locales :
+	
+	booleen : nationality <- faux
+	booleen : speakingFrench <- faux
+	booleen : speakingDutch <- faux	
+	
+	reel : visualAcuity <- 0.0
+	
+	entier : age <- 0
+
+Instructions :
+
+	age <- Utilities.getUserInputInteger("- Quel est votre age ?")
+	nationality <- Utilities.checkAnswer("- Etes-vous de nationalité belge ou issu de l’union européenne Y/N ?", "Y")
+	speakingFrench <- Utilities.checkAnswer("- Parlez-vous couramment le français Y/N?", "Y")
+	speakingDutch <- Utilities.checkAnswer("- Parlez-vous couramment le néerlandais Y/N?", "Y")
+	visualAcuity <- Utilities.getUserInputDouble("- Quelle est votre acuité visuelle /10 ?", 0.0, 10.0)
+	
+	RETOURNER (age >= AGE_MIN . age < AGE_MAX ) . nationality . (speakingFrench + speakingDutch) . (visualAcuity >= ACUITY_MIN)
+		
+Fin isSelected()

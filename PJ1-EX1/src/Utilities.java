@@ -9,30 +9,13 @@ public class Utilities {
 	 * @param question Phrase libre que l'on envoie dans le Scanner
 	 * @return
 	 */
-	public static double getUserMultipleInputDouble(String question) {// public rend la fonction utilisable dans
-																		// d'autres class
+	public static double getUserInputDouble(String question) {// public rend la fonction utilisable dans d'autres
+																// classes
 		double value = 0.0;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println(question);
 		value = sc.nextDouble();
-
-		return value;
-	}
-
-	/**
-	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un
-	 * entier
-	 * 
-	 * @param question Phrase libre que l'on envoie dans le Scanner
-	 * @return
-	 */
-	public static int getUserMultipleInputInteger(String question) {
-		int value = 0;
-
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		value = sc.nextInt();
 
 		return value;
 	}
@@ -44,12 +27,29 @@ public class Utilities {
 	 * @param question Phrase libre que l'on envoie dans le Scanner
 	 * @return
 	 */
-	public static String getUserMultipleInputString(String question) {
+	public static String getUserInputString(String question) {
 		String value = "";
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println(question);
 		value = sc.nextLine();
+
+		return value;
+	}
+
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un
+	 * entier
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return
+	 */
+	public static int getUserInputInteger(String question) {
+		int value = 0;
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println(question);
+		value = sc.nextInt();
 
 		return value;
 	}
@@ -63,7 +63,7 @@ public class Utilities {
 	 * @param max      Valeur maximum
 	 * @return
 	 */
-	public static int getUserInput_WithMinMax(String question, int min, int max) {
+	public static int getUserInputInteger(String question, int min, int max) {
 		int value = 0;
 
 		Scanner sc = new Scanner(System.in);
@@ -126,6 +126,31 @@ public class Utilities {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(question);
 		txtAnswer = sc.nextLine();
-		return (txtAnswer.equals(answer));
+		return (txtAnswer.trim().equalsIgnoreCase(answer));
 	}
+
+	/**
+	 * Permet de boucler une question tant que le nombre rentré n'est pas compris entre le minimum et le maximum
+	 * 
+	 * @param question La question
+	 * @param min Nombre minimum accepté (inclus)
+	 * @param max Nombre maximum accepté (inclus)
+	 * @return
+	 */
+	public static int getUserIntegerInput(String question, int min, int max) {
+		int value = 0;
+
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println(question);
+			value = sc.nextInt();
+			if (value < min) {
+				System.out.println("Saisie incorrecte ! Le nombre doit être supérieur ou égal à " + min);
+			} else if (value > max) {
+				System.out.println("Saisie incorrecte ! Le nombre doit être inférieur ou égal " + max);
+			}
+		} while (value < min || value > max);
+		return value;
+	}
+
 }

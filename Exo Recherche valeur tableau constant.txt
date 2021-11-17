@@ -1,0 +1,29 @@
+Exo Recherche valeur tableau constant
+
+Procedure Main()
+
+Déclarations :
+	
+	Variables locales :
+	
+	entier Nombres[] <- [ 15, 25, 0, 35, 48 , 2, 0, 89, 100, 7]
+	
+Instructions :
+	
+	checkNumber()
+	
+Fin Main()
+
+Procedure checkNumber()
+
+Déclarations :
+
+	Variables locales :
+	entier inputNumber <- 0
+	
+Instructions :
+
+	inputNumber <- Utilities.getUserInputInteger("Entrez la valeur entière à vérifier dans la liste")
+	l'index de inputNumber existe dans Nombres[] ? Afficher("la valeur " inputNumber + " se trouve bien dans la liste") : Afficher("la valeur " + inputNumber + " ne se trouve pas dans la liste")
+
+Fin checkNumber()

@@ -16,7 +16,7 @@ public class Ex10 {
 		VAT = getVATChoice(VAT_POURCENT_1, VAT_POURCENT_2, VAT_POURCENT_3);
 
 		if (VAT != -1.0) {
-			dblBrutPrice = Utilities.getUserMultipleInputDouble("Veuillez entrer votre montant brut");
+			dblBrutPrice = Utilities.getUserInputDouble("Veuillez entrer votre montant brut");
 			System.out.println("Pour un prix brut de " + dblBrutPrice + "€, le prix net est de "
 					+ roundNumber.format(Utilities.ComputeNetPrice(dblBrutPrice, VAT)) + "€ (TVA " + VAT + "%)");
 		}

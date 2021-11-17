@@ -6,22 +6,18 @@ public class Ex14 {
 
 	public static void main(String[] args) {
 
-		final int NUM_MIN = 1, NUM_MAX = 4;
 		int choixConso = -1;
 		int nombreConso = 0;
 		boolean validation = false;
 
-		System.out.println(Names[0] + " N°1 - emplacement : " + Stock[0][0] + " quantité en stock : " + Stock[0][1]);
-		System.out.println(Names[1] + " N°2 - emplacement : " + Stock[1][0] + " quantité en stock : " + Stock[1][1]);
-		System.out.println(Names[2] + " N°3 - emplacement : " + Stock[2][0] + " quantité en stock : " + Stock[2][1]);
-		System.out.println(Names[3] + " N°4 - emplacement : " + Stock[3][0] + " quantité en stock : " + Stock[3][1]);
+		showStock();
 
-		choixConso = Utilities.getUserInput_WithMinMax("Entrez le N° de consommation", NUM_MIN, NUM_MAX);
+		choixConso = Utilities.getUserInputInteger("Entrez le N° de consommation",1, Names.length);
 
 		if (choixConso != -1) {
 
-			nombreConso = Utilities.getUserMultipleInputInteger("Entrez le nombre d'unité consommées pour "
-					+ Names[choixConso - 1] + ". Quantité actuellement en stock : " + Stock[choixConso - 1][1]
+			nombreConso = Utilities.getUserInputInteger("Entrez le nombre d'unité consommées pour "
+					+ Names[choixConso - 1] + ". \nQuantité actuellement en stock : " + Stock[choixConso - 1][1]
 					+ ", emplacement : " + Stock[choixConso - 1][0]);
 			if (nombreConso >= 0 && nombreConso <= Stock[choixConso - 1][1]) {
 				Stock[choixConso - 1][1] -= nombreConso;
@@ -30,6 +26,7 @@ public class Ex14 {
 						+ Names[choixConso - 1] + "! Annuler ou Mettre à Zero le stock. A/Z", "Z");
 				if (validation) {
 					Stock[choixConso - 1][1] = 0;
+					System.out.println("Stock 0 pour : " + Names[choixConso - 1]);
 				} else {
 					System.out.println("Modification annulée");
 				}
@@ -40,6 +37,10 @@ public class Ex14 {
 			System.out.println("N° non référencé.");
 		}
 
+		showStock();
+	}
+
+	public static void showStock() {
 		System.out.println(Names[0] + " N°1 - emplacement : " + Stock[0][0] + " quantité en stock : " + Stock[0][1]);
 		System.out.println(Names[1] + " N°2 - emplacement : " + Stock[1][0] + " quantité en stock : " + Stock[1][1]);
 		System.out.println(Names[2] + " N°3 - emplacement : " + Stock[2][0] + " quantité en stock : " + Stock[2][1]);
