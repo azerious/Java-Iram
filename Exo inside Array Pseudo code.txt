@@ -1,0 +1,38 @@
+Exo_max_inside_array 
+
+Procédure main()
+
+DEBUT
+
+	Déclarations :
+	
+		entier Array[] <- { 15, 25, 0, 35, 48, 2, 0, 89, 100, 7 }
+		entier maximum <- 0
+
+	Instructions :
+	
+		maximum <- get_max(Array)
+		
+		Afficher("Le nombre maximum est : " + maximum)
+
+Fin de main()
+
+Fonction get_max(entier Array[]) : entier
+
+	Déclarations :
+		
+		entier i <- 0
+		entier max <- Array[0]
+
+	Instructions : 
+	
+		TANT QUE (i < Array.length)
+			SI (Array[i] > max) ALORS
+				max <- Array[i];
+			Fin SI
+			i++;
+		Fin TANT QUE
+		
+		RETOURNER max;
+
+Fin get_max()

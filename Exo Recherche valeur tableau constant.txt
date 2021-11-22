@@ -10,20 +10,30 @@ Déclarations :
 	
 Instructions :
 	
-	checkNumber()
+	inputNumber <- Utilities.getUserInputInteger("Entrez la valeur entière à vérifier dans la liste")
+	
+	Afficher(checkNumber(Nombres, inputNumber) = -1 ? "la valeur " + inputNumber + " ne se trouve pas dans la liste"
+			: "la valeur " + inputNumber + " se trouve bien dans la liste et son emplacement est : "
+			+ checkNumber(Nombres, inputNumber))
 	
 Fin Main()
 
-Procedure checkNumber()
+Fonction checkNumber(entier Nombres[], entier inputNumber) : entier
 
 Déclarations :
 
 	Variables locales :
-	entier inputNumber <- 0
+	entier i <- 0
 	
 Instructions :
 
-	inputNumber <- Utilities.getUserInputInteger("Entrez la valeur entière à vérifier dans la liste")
-	l'index de inputNumber existe dans Nombres[] ? Afficher("la valeur " inputNumber + " se trouve bien dans la liste") : Afficher("la valeur " + inputNumber + " ne se trouve pas dans la liste")
-
-Fin checkNumber()
+	TANT QUE (i < Nombres.length)
+		SI (inputNumber == Nombres[i])
+		RETOURNER i +1
+		Fin SI
+		i <- i+1
+	Fin TANT QUE
+	
+	RETOURNER -1
+	
+Fin Fonction checkNumber()

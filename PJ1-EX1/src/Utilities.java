@@ -7,7 +7,7 @@ public class Utilities {
 	 * réel
 	 * 
 	 * @param question Phrase libre que l'on envoie dans le Scanner
-	 * @return
+	 * @return retourne le réel demandé
 	 */
 	public static double getUserInputDouble(String question) {// public rend la fonction utilisable dans d'autres
 																// classes
@@ -25,7 +25,7 @@ public class Utilities {
 	 * phrase
 	 * 
 	 * @param question Phrase libre que l'on envoie dans le Scanner
-	 * @return
+	 * @return retourne la phrase demandée
 	 */
 	public static String getUserInputString(String question) {
 		String value = "";
@@ -42,7 +42,7 @@ public class Utilities {
 	 * entier
 	 * 
 	 * @param question Phrase libre que l'on envoie dans le Scanner
-	 * @return
+	 * @return retourne l'entier demandé
 	 */
 	public static int getUserInputInteger(String question) {
 		int value = 0;
@@ -61,7 +61,7 @@ public class Utilities {
 	 * @param question Phrase libre que l'on envoie dans le Scanner
 	 * @param min      Valeur minimum
 	 * @param max      Valeur maximum
-	 * @return
+	 * @return retourne l'entier demandé si compris entre min max OU retourne -1
 	 */
 	public static int getUserInputInteger(String question, int min, int max) {
 		int value = 0;
@@ -79,7 +79,7 @@ public class Utilities {
 	 * 
 	 * @param prixBrut Prix brut
 	 * @param TVA      Taux tva (en %)
-	 * @return
+	 * @return retourne le prix NET d'un brut
 	 */
 	public static double ComputeNetPrice(double prixBrut, double TVA) {
 
@@ -118,7 +118,8 @@ public class Utilities {
 	 * 
 	 * @param question La question
 	 * @param answer   La réponse
-	 * @return
+	 * @return retourne vrai/faux si la réponse donnée correspond à la réponse
+	 *         attendue (sans tenir compte des maj ou des espaces avant / après)
 	 */
 	public static boolean checkAnswer(String question, String answer) {
 		String txtAnswer = "";
@@ -130,12 +131,13 @@ public class Utilities {
 	}
 
 	/**
-	 * Permet de boucler une question tant que le nombre rentré n'est pas compris entre le minimum et le maximum
+	 * Permet de boucler une question tant que le nombre rentré n'est pas compris
+	 * entre le minimum et le maximum
 	 * 
 	 * @param question La question
-	 * @param min Nombre minimum accepté (inclus)
-	 * @param max Nombre maximum accepté (inclus)
-	 * @return
+	 * @param min      Nombre minimum accepté (inclus)
+	 * @param max      Nombre maximum accepté (inclus)
+	 * @return retourne l'entier demandé dans l'écart min max
 	 */
 	public static int getUserIntegerInput(String question, int min, int max) {
 		int value = 0;
@@ -151,6 +153,67 @@ public class Utilities {
 			}
 		} while (value < min || value > max);
 		return value;
+	}
+
+	/**
+	 * 
+	 * Permet de retourner l'index du nombre rechercher OU -1 si le nombre n'est pas
+	 * dans le tableau
+	 * 
+	 * @param Nombres     Le tableau rempli de nombre sur lequel on souhaite faire
+	 *                    la recherche
+	 * @param inputNumber Le nombre que l'on recherche dans le tableau
+	 * @return index if found, -1 if not found
+	 */
+	static int isInTab(int Nombres[], int inputNumber) {
+		int i = 0;
+
+		while (i < Nombres.length) {
+			if (inputNumber == Nombres[i]) {
+				return i;
+			}
+			i++;
+		}
+		return -1;
+	}
+
+	/**
+	 * 
+	 * Permet de retourner un booleen vrai/faux si le nombre recherché est dans le
+	 * tableau
+	 * 
+	 * @param Nombres     Le tableau rempli de nombre sur lequel on souhaite faire
+	 *                    la recherche
+	 * @param inputNumber Le nombre que l'on recherche dans le tableau
+	 * @return true if found, false if not found
+	 */
+	static boolean isInTab(int inputNumber, int Nombres[]) {
+		int i = 0;
+
+		while (i < Nombres.length) {
+			if (inputNumber == Nombres[i]) {
+				return true;
+			}
+			i++;
+		}
+		return false;
+	}
+
+	/**
+	 * Permet de rechercher le maximum dans un tableau et de le retourner
+	 * 
+	 * @param Array Le tableau que l'on envoie
+	 * @return retourne le maximum du tableau
+	 */
+	static int getMax(int Array[]) {
+		int max = Array[0];
+
+		for (int i = 1; i < Array.length; i++) {
+			if (Array[i] > max) {
+				max = Array[i];
+			}
+		}
+		return max;
 	}
 
 }

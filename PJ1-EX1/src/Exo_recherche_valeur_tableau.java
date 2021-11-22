@@ -10,25 +10,20 @@ public class Exo_recherche_valeur_tableau {
 
 		System.out.println(
 				checkNumber(Nombres, inputNumber) == -1 ? "la valeur " + inputNumber + " ne se trouve pas dans la liste"
-						: "la valeur " + inputNumber + " se trouve bien dans la liste");
+						: "la valeur " + inputNumber + " se trouve bien dans la liste et son emplacement est : "
+								+ checkNumber(Nombres, inputNumber));
 
 	}
 
 	static int checkNumber(int Nombres[], int inputNumber) {
 		int i = 0;
 
-		/*
-		 * System.out.println(java.util.Arrays.asList(Nombres).indexOf(inputNumber) !=
-		 * -1 ? "la valeur " + inputNumber + " se trouve bien dans la liste" :
-		 * "la valeur " + inputNumber + " ne se trouve pas dans la liste");
-		 */
-
-		do {
+		while (i < Nombres.length) {
 			if (inputNumber == Nombres[i]) {
-				return 1;
+				return i;
 			}
 			i++;
-		} while (i < Nombres.length);
+		}
 		return -1;
 	}
 }

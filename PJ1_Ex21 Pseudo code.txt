@@ -1,0 +1,41 @@
+Ex 21
+
+Procédure Main()
+
+DEBUT
+
+Déclarations :
+		
+	Variables locales :
+	chaine : Names[] <- {"Spa reine 25 cl","Bru plate 50 cl","Bru légèrement pétillante 50 cl","Pepsi, Pepsi max", "Spa orange"}
+
+
+Instructions :
+	
+	defineStock(Names)
+	
+Fin Main()
+
+
+Procédure defineStock(chaine Names[]) : chaine
+
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+	entier : value <- 0
+	entier : [] Stock <- new entier[Names.length]
+
+Instructions :
+
+	POUR (i allant de 0 à la longueur de Names[]-1 par pas de 1)
+		value <- Utilities.getUserInputInteger("Entrez le stock pour " + Names[i] )
+		Stock[i] <- value
+	Fin POUR
+	
+	POUR(i allant de 0 à la longueur de Names[]-1 par pas de 1)
+	Afficher(Names[i] + " Stock : " + Stock[i])
+	Fin POUR
+
+fin defineStock()
