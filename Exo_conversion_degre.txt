@@ -1,0 +1,40 @@
+Exo conversion degre
+
+Procédure main()
+
+Déclarations :
+    Variables locales :
+    réel : value <- 0.0
+
+Intructions :
+    value <- Utilities.getUserInputDouble("Entrez la température à convertir")
+    
+    transformeDegrees(value)
+
+Fin main()
+
+Procédure transformeDegrees(reel : value)
+
+Déclarations :
+    variables locales :
+    chaine : answer <- ""
+    
+    REPETER 
+    
+        answer <- Utilities.getUserInputString(Votre saisie est en Celsius ou Farenheit C/F ?)
+    
+    TANT QUE(answer en majuscule et en retirant les espaces avant/apres <> "C" . answer en mascule et en retirant les espaces avant/apres <> "F")
+    
+    
+    SI(answer = "F") ALORS
+    
+       Afficher("la conversion Celsius de " + value + " degrés Farenheit est " + (9.0 / 5.0 * value + 32.0));
+        
+    SINON
+    
+        Afficher("la conversion Farenheit de " + value + " degrés Celsius est " + (5.0 / 9.0 * (value - 32.0)));
+    
+    Fin SI
+    
+
+Fin transformeDegrees()

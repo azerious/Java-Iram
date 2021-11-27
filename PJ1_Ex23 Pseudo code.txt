@@ -1,0 +1,67 @@
+Ex23
+
+
+Constantes :
+
+	entier STOCKS[][] <- { { 1, 56, 200, 55 }, { 2, 42, 200, 60 }, { 3, 62, 200, 125 }, { 4, 45, 200, 150 },{ 5, 25, 200, 140 }, { 6, 72, 200, 86 }, { 7, 40, 200, 47 }, { 8, 48, 200, 80 }, { 9, 24, 150, 126 },{ 10, 36, 200, 164 }, { 11, 15, 100, 85 }, { 12, 25, 80, 23 } }
+	chaine NAMES[] <- { "Spa Reine", "Bru Plate", "Bru légèrement pétillante", "Pepsi", "Spa Orange", "Schweppes Tonic", "Schweppes Agrumes", "Lipton Ice Tea", "Lipton Ice Tea Pêche", "Jus d'orange Looza", "Cécémel", "Red Bull" }
+
+Procedure main()
+
+DEBUT 
+
+Déclarations :
+	Variables locales :
+	
+Instructions :
+
+		placeNumberRank(35, 40, 45)
+
+Fin main()
+
+Procedure placeNumberRank(entier firstPlace, entier secondPlace, entier thirdPlace)
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+
+Instructions :
+		POUR i allant de 0 à taille du tableau names -1 par pas de 1 
+		
+			chaine allStocks <- names[i]
+			chaine quantityStock <- transformer en chaine l'entier(stocks[i][1])
+			chaine quantityToHave <- transformer en chaine l'entier(stocks[i][2])
+			chaine quantitySold <- transformer en chaine l'entier(stocks[i][3])
+			
+			POUR index allant de la taille de allStocks à (firstPlace - taille de quantityStock) par pas de 1
+
+				allStocks <- allStocks + " "
+
+			Fin POUR
+
+			allStocks <- allStocks + quantityStock
+
+
+			POUR index allant de la taille de allStocks à (secondPlace - taille de quantityToHave)par pas de 1
+
+				allStocks <- allStocks + " "
+
+			Fin POUR
+
+			allStocks <- allStocks + quantityToHave;
+
+
+			POUR index allant de la taille de allStocks à (thirdPlace - taille de quantitySold) par pas de 1
+
+				allStocks +<- " "
+
+			Fin POUR
+
+			allStocks <- allStocks + quantitySold
+			AFFICHER(allStocks)
+			AFFICHER à la ligne
+
+		Fin POUR
+
+Fin placeNumberRank()
