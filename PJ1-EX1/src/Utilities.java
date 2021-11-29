@@ -13,12 +13,20 @@ public class Utilities {
 	public static double getUserInputDouble(String question) {// public rend la fonction utilisable dans d'autres
 																// classes
 		double value = 0.0;
+		do {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		value = sc.nextDouble();
+			try {
 
-		return value;
+				Scanner sc = new Scanner(System.in);
+				System.out.println(question);
+				value = sc.nextDouble();
+
+				return value;
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
 	}
 
 	/**
@@ -30,12 +38,20 @@ public class Utilities {
 	 */
 	public static String getUserInputString(String question) {
 		String value = "";
+		do {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		value = sc.nextLine();
+			try {
 
-		return value;
+				Scanner sc = new Scanner(System.in);
+				System.out.println(question);
+				value = sc.nextLine();
+
+				return value;
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
 	}
 
 	/**
@@ -48,11 +64,20 @@ public class Utilities {
 	public static int getUserInputInteger(String question) {
 		int value = 0;
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		value = sc.nextInt();
+		do {
 
-		return value;
+			try {
+				Scanner sc = new Scanner(System.in);
+				System.out.println(question);
+				value = sc.nextInt();
+				return value;
+
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
+
 	}
 
 	/**
@@ -66,13 +91,21 @@ public class Utilities {
 	 */
 	public static int getUserInputInteger(String question, int min, int max) {
 		int value = 0;
+		do {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		value = sc.nextInt();
+			try {
 
-		return min <= value && max >= value ? value : -1;
+				Scanner sc = new Scanner(System.in);
+				System.out.println(question);
+				value = sc.nextInt();
 
+				return min <= value && max >= value ? value : -1;
+
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
 	}
 
 	/**
@@ -95,23 +128,31 @@ public class Utilities {
 	 */
 	public static int getAndCheckTableNumber(int NUM_MAX_TABLE) {
 		int intNumTable = 0;
+		do {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Entrez le N° de table");
-		intNumTable = sc.nextInt();
+			try {
 
-		if (intNumTable > NUM_MAX_TABLE) {
-			System.out.println("Saisie incorrecte ! Le N° table le plus élevé est " + NUM_MAX_TABLE
-					+ ". Contactez l’administrateur du programme si vous souhaitez augmenter ce nombre");
-			return -1;
-		} // fin else if 1
-		else if (intNumTable < 1) {
-			System.out.println("Saisie incorrecte ! Le N° de table doit être supérieur ou égal à 1");
-			return -1;
-		} // Fin else if 2
-		else {
-			return intNumTable;
-		}
+				Scanner sc = new Scanner(System.in);
+				System.out.println("Entrez le N° de table");
+				intNumTable = sc.nextInt();
+
+				if (intNumTable > NUM_MAX_TABLE) {
+					System.out.println("Saisie incorrecte ! Le N° table le plus élevé est " + NUM_MAX_TABLE
+							+ ". Contactez l’administrateur du programme si vous souhaitez augmenter ce nombre");
+					return -1;
+				} // fin else if 1
+				else if (intNumTable < 1) {
+					System.out.println("Saisie incorrecte ! Le N° de table doit être supérieur ou égal à 1");
+					return -1;
+				} // Fin else if 2
+				else {
+					return intNumTable;
+				}
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
 	}
 
 	/**
@@ -124,11 +165,19 @@ public class Utilities {
 	 */
 	public static boolean checkAnswer(String question, String answer) {
 		String txtAnswer = "";
+		do {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println(question);
-		txtAnswer = sc.nextLine();
-		return (txtAnswer.trim().equalsIgnoreCase(answer));
+			try {
+
+				Scanner sc = new Scanner(System.in);
+				System.out.println(question);
+				txtAnswer = sc.nextLine();
+				return (txtAnswer.trim().equalsIgnoreCase(answer));
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
 	}
 
 	/**
@@ -142,21 +191,29 @@ public class Utilities {
 	public static String getUserSpecificInput(String msg, String expectedAnswers) {
 
 		String strAnswer;
-		Scanner sc = new Scanner(System.in);
-
 		do {
-			System.out.println(msg);
-			strAnswer = sc.next().trim().toUpperCase();
-			// if only one char and if this char is in the expected answer string
-			if (strAnswer.length() == 1 && expectedAnswers.indexOf(strAnswer) >= 0) {
-				return strAnswer;
-			} else {
-				System.out.println(
-						"Erreur de saisie, votre choix doit être parmi " + expectedAnswers + " une lettre seulement");
-			} // FIN ELSE
-		} // FIN DO
-		while (true);// end do while
-	} // FIN FONCTION
+
+			try {
+				Scanner sc = new Scanner(System.in);
+
+				do {
+					System.out.println(msg);
+					strAnswer = sc.next().trim().toUpperCase();
+					// if only one char and if this char is in the expected answer string
+					if (strAnswer.length() == 1 && expectedAnswers.indexOf(strAnswer) >= 0) {
+						return strAnswer;
+					} else {
+						System.out.println("Erreur de saisie, votre choix doit être parmi " + expectedAnswers
+								+ " une lettre seulement");
+					} // FIN ELSE
+				} // FIN DO
+				while (true);// end do while
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
+			}
+		} while (true);
+	}// FIN FONCTION
 
 	/**
 	 * Permet de boucler une question tant que le nombre rentré n'est pas compris
@@ -169,18 +226,26 @@ public class Utilities {
 	 */
 	public static int getUserIntegerInput(String question, int min, int max) {
 		int value = 0;
-
-		Scanner sc = new Scanner(System.in);
 		do {
-			System.out.println(question);
-			value = sc.nextInt();
-			if (value < min) {
-				System.out.println("Saisie incorrecte ! Le nombre doit être supérieur ou égal à " + min);
-			} else if (value > max) {
-				System.out.println("Saisie incorrecte ! Le nombre doit être inférieur ou égal " + max);
+
+			try {
+
+				Scanner sc = new Scanner(System.in);
+				do {
+					System.out.println(question);
+					value = sc.nextInt();
+					if (value < min) {
+						System.out.println("Saisie incorrecte ! Le nombre doit être supérieur ou égal à " + min);
+					} else if (value > max) {
+						System.out.println("Saisie incorrecte ! Le nombre doit être inférieur ou égal " + max);
+					}
+				} while (value < min || value > max);
+				return value;
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
 			}
-		} while (value < min || value > max);
-		return value;
+		} while (true);
 	}
 
 	/**
@@ -217,14 +282,22 @@ public class Utilities {
 	 */
 	static boolean isInTab(int inputNumber, int Nombres[]) {
 		int i = 0;
+		do {
 
-		while (i < Nombres.length) {
-			if (inputNumber == Nombres[i]) {
-				return true;
+			try {
+
+				while (i < Nombres.length) {
+					if (inputNumber == Nombres[i]) {
+						return true;
+					}
+					i++;
+				}
+				return false;
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
 			}
-			i++;
-		}
-		return false;
+		} while (true);
 	}
 
 	/**
@@ -235,13 +308,21 @@ public class Utilities {
 	 */
 	static int getMax(int Array[]) {
 		int max = Array[0];
+		do {
 
-		for (int i = 1; i < Array.length; i++) {
-			if (Array[i] > max) {
-				max = Array[i];
+			try {
+
+				for (int i = 1; i < Array.length; i++) {
+					if (Array[i] > max) {
+						max = Array[i];
+					}
+				}
+				return max;
+			} catch (Exception e) {
+				System.out.println("Erreur de saisie recommencez");
+
 			}
-		}
-		return max;
+		} while (true);
 	}
 
 	/**

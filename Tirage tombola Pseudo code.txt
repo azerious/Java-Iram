@@ -1,0 +1,47 @@
+Exo Tirage tombola
+
+
+Procédure main()
+
+DEBUT
+
+Déclarations :
+    Variables locales :
+		entier[] tickets <- entier[10]
+
+Intructions :
+   
+   randomTickets(tickets[])
+   
+   POUR i allant de 0 à 10 par pas de +1
+   
+   Afficher("N° du lot " + (i+1) + " Numéro de billet " + tickets[i]
+   
+   Fin POUR
+	
+Fin main()
+
+
+fonction randomTickets(entier : tickets[]) : entier[]
+
+DEBUT
+
+Déclarations : 
+	Variables locales : 
+	
+	
+	POUR i allant de 0 à 10 par pas de +1
+	
+		REPETER 
+			tickets[i] <- Utilities.randomInt(1,50)
+			
+			SI (tickets[i] n'est pas déjà dans le tableau) ALORS
+				Afficher("N° de billet " + tickets[i] + " attribué au lot N° " + (i+1) + " – numéro de billet rejeté")
+			Sinon
+				Afficher("N° de billet " + tickets[i] + " attribué au lot N° " + (i+1) + " – numéro de billet accepté")
+			
+		TANT QUE (tickets[i] est déjà dans le tableau)
+	
+	Fin POUR
+	
+Fin randomTickets()
