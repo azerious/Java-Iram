@@ -15,7 +15,7 @@ Intructions :
    
    POUR i allant de 0 à 10 par pas de +1
    
-   Afficher("N° du lot " + (i+1) + " Numéro de billet " + tickets[i]
+	Afficher("N° du lot " + (i+1) + " Numéro de billet " + tickets[i]
    
    Fin POUR
 	
@@ -29,18 +29,26 @@ DEBUT
 Déclarations : 
 	Variables locales : 
 	
-	
+	entier temp <- 0
+	booleen isInTab <- faux
+
+Instructions :
+
 	POUR i allant de 0 à 10 par pas de +1
 	
 		REPETER 
-			tickets[i] <- Utilities.randomInt(1,50)
+			temp <- Utilities.randomInt(1,50)
 			
-			SI (tickets[i] n'est pas déjà dans le tableau) ALORS
-				Afficher("N° de billet " + tickets[i] + " attribué au lot N° " + (i+1) + " – numéro de billet rejeté")
-			Sinon
-				Afficher("N° de billet " + tickets[i] + " attribué au lot N° " + (i+1) + " – numéro de billet accepté")
+			isInTab <- Utilities.isInTab(temp, tickets)
 			
-		TANT QUE (tickets[i] est déjà dans le tableau)
+			SI (isInTab = vrai) ALORS
+				Afficher("N° de billet " + temp + " attribué au lot N° " + (i+1) + " – numéro de billet rejeté")
+						
+		TANT QUE (isInTab = vrai)
+		
+		tickets[i] <- temp
+		
+		Afficher("N° de billet " + tickets[i] + " attribué au lot N° " + (i + 1) + " – numéro de billet accepté")
 	
 	Fin POUR
 	

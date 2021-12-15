@@ -1,0 +1,107 @@
+
+
+CONSTANTES :
+
+	Names <- (Liste des conso)
+	Price <- (liste des Prix)
+	
+Procédure Main()
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+	ArrayList<entier[]> order <- new ArrayList<entier[]>()
+	
+Instructions :
+
+getOrder(order)
+
+Fin Main()
+
+fonction getOrder() : entier[]
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+	chaine answer <- ""
+	entier idCons
+	entier numbCons
+	
+
+Instructions :
+
+	
+	SI(longueur(order) = 0) ALORS
+		answer <- getUserIntOrSpecificInput("Entrez le N° de consommable ou Q(Quitter)", "Q", 1, longueur(Names[]))
+			SI (essayer de convertir answer en entier = true) ALORS
+				idCons <- answer -1
+				answer <- getUserIntOrSpecificInput("Nombre de consommations pour " + Names[idCons] + " ? /A(Annuler) /Q (Quitter)", "AQ", 1, 1000)
+					SI (essayer de convertir answer en entier = true) ALORS
+						numbCons <- answer
+					
+					SINON SI (answer = A) ALORS
+					FIN SI
+			SINON
+				Exit programme
+			FIN SI
+	
+	SINON
+		getUserIntOrSpecificInput("Entrez le N° de consommable ou Q(Quitter) V(Valider le ticket)", "VQ", 1, longueur(Names)+1)
+	
+	
+
+
+Fin fonction getOrder()
+
+
+fonction getUserIntOrSpecificInput(chaine msg, chaine expectedAnswers, entier min, entier max) : chaine
+		
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+	
+		entier : intInput <- 0
+		chaine : strInput <- ""
+
+Instructions :
+
+		REPETEZ
+
+			Afficher(msg);
+			
+			SI (essayer de convertir saisie en entier = true) ALORS
+				
+				lire intInput
+				
+					SI(intInput < min OU intInput > max) ALORS
+						Afficher("Le nombre doit être compris entre " + min + " et " + max)
+						
+					SINON 
+					
+						RETOURNER conversionChaine(intInput)
+					
+					FIN SI
+				
+			SINON
+			
+				lire strInput forcer capital sans espace avant / après
+			
+				SI (longueur(strInput) = 1 ET présence de strInput dans expectedAnswers ) ALORS
+				
+					RETOURNER strInput
+				
+				SINON
+				
+					Afficher("Erreur de saisie, votre choix doit être parmi " + expectedAnswers
+						+ " une lettre seulement")
+				FIN SI	
+				
+			FIN SI
+			
+		TANT QUE(vrai)
+		
+FIN FONCTION

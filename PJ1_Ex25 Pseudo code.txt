@@ -1,0 +1,59 @@
+Ex 25
+
+	CONSTANTES :
+		chaine Names[] <- { "Spa reine 25 ", "Bru plate 50", "Bru pét 50", "Pepsi", "Spa orange",
+			"Schweppes Tonic", "Schweppes Agr", "Ice Tea", "Ice Tea Pêche", "Jus d'orange Looza", "Cécémel", "Red Bull",
+			"Petit Expresso", "Grand Expresso", "Café décaféiné ", "Lait Russe ", "Thé et infusions", "Irish Coffee ",
+			"French Coffee ", "Cappuccino", "Cécémel chaud", "Passione Italiano", "Amour Intense", "Rhumba Caliente ",
+			"Irish Kisses ", "Cuvée Trolls 25", "Cuvee Trolls 50", "Ambrasse-Temps 25", "Ambrasse-Temps 50 ",
+			"Brasse-Temps Cerises 25", "Brasse-Temps Cerises 50", "La Blanche Ste Waudru 25", "Blanche Ste Waudru 50",
+			"Brasse-Temps citr 25", "Brasse-Temps citr 50", "Spaghetti Bolo ", "Tagl Carbonara", "Penne poulet baslc ",
+			"Tagl American", "Tagl saum" }
+		chaine V <- "V"
+		chaine Q <- "Q"
+		chaine A <- "A"
+		entier RANK <- 30
+
+Procedure main() 
+
+DEBUT :
+	
+	Variables locales :
+		chaine strToPrint <- ""
+		chaine strPathDirectory <- ""
+
+		ArrayList<int[]> order
+		Exo_Correction_24.getOrder(order)
+
+		ESSAYER
+			Afficher("Entrez le chemin du fichier comme C:\\Temp par exemple")
+			lire strPathDirectory
+
+			File f.creer(strPathDirectory + "\\MonFichierTestExoTicket.txt")
+			SI (f.exists()) {
+				Afficher("Le fichier existe déjà et va être modifié")
+			} else {
+				Afficher("Le fichier n'existe pas encore et va être créé")
+				f.createNewFile()
+			FIN SI
+			
+			Fichier.ecrire(f, faux)
+			
+			POUR i allant de 0 a longueur(order) par pas de 1
+
+				strToPrint <- Ex23_correction.placeNumberToRank(Names[order(i)[0]], convertir chaine(order(i)[1]), RANK)
+
+				f.ecrire(strToPrint + "\r\n")
+	
+			FIN POUR
+			
+			fw.fermer()
+			
+			Afficher("Allez voir votre fichier " + f.nom() + " dans le " + " répertoire " + f.parent())
+			sc.close()
+
+		ATTRAPER(exception)
+			Afficher("Erreur survenue :" + exception.recuperationMessage())
+		FIN ESSAYER
+
+Fin main()

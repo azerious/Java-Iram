@@ -26,12 +26,11 @@ Fonction get_max(entier Array[]) : entier
 
 	Instructions : 
 	
-		TANT QUE (i < Array.length)
+		POUR (i allant de 0 à taille Array[]-1 par pas de 1)
 			SI (Array[i] > max) ALORS
 				max <- Array[i];
 			Fin SI
-			i++;
-		Fin TANT QUE
+		Fin POUR
 		
 		RETOURNER max;
 

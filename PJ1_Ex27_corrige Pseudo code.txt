@@ -1,0 +1,160 @@
+Ex27 Pseudo code
+
+CONSTANTES :
+		entier : MIN_TABLE <- 1
+		entier : MAX_TABLE <- 20
+		chaine : NAMES[] <- { "Spa reine 25 ", "Bru plate 50", "Bru pét 50", "Pepsi", "Spa orange",
+			"Schweppes Tonic", "Schweppes Agr", "Ice Tea", "Ice Tea Pêche", "Jus d'orange Looza", "Cécémel", "Red Bull",
+			"Petit Expresso", "Grand Expresso", "Café décaféiné ", "Lait Russe ", "Thé et infusions", "Irish Coffee ",
+			"French Coffee ", "Cappuccino", "Cécémel chaud", "Passione Italiano", "Amour Intense", "Rhumba Caliente ",
+			"Irish Kisses ", "Cuvée Trolls 25", "Cuvee Trolls 50", "Ambrasse-Temps 25", "Ambrasse-Temps 50 ",
+			"Brasse-Temps Cerises 25", "Brasse-Temps Cerises 50", "La Blanche Ste Waudru 25", "Blanche Ste Waudru 50",
+			"Brasse-Temps citr 25", "Brasse-Temps citr 50", "Spaghetti Bolo ", "Tagl Carbonara", "Penne poulet baslc ",
+			"Tagl American", "Tagl saum" }
+		reel : NETPRICES[] <- { 2.2, 2.3, 3.9, 2.2, 2.2, 2.6, 2.6, 2.6, 2.6, 2.6, 2.6, 4.5, 2.2, 2.2, 2.2, 2.5,
+			2.5, 7.0, 7.0, 2.8, 2.8, 6.2, 6.2, 6.2, 6.2, 2.9, 5.5, 2.7, 5.1, 3.1, 5.8, 2.6, 4.9, 2.6, 4.9, 10.8, 11.2,
+			12.2, 14.5, 16.9 }
+		byte : TYPE_TVA[] <- {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1}
+		reel : TAUX_TVA1 <- 21.0
+		reel : TAUX_TVA2 <- 12.0
+		reel : TAUX_TVA3 <- 6.0
+		reel : PCT_TVA[] <- {TAUX_TVA1, TAUX_TVA2, TAUX_TVA3}
+		entier : RANK1 <- 31
+		entier : RANK2 <- 40
+		entier : RANK3 <- 47
+		entier : TAB_RANK[] <- {RANK1, RANK2 ,RANK3}
+		chaine : V <- "V"
+		chaine : Q <- "Q"
+		chaine : A <- "A"
+		chaine : PATHDIR <- "D:\Attitude\Documents\COURS\Iramps\Java\Java-Iram\Tickets_resto"
+		chaine : DATEFORMAT <- "yyyy-MM-dd HH'h'mm'm'-ss's'-SSS"
+		date : DATENOW <- getTime()
+		chaine : ENTETE <- "Le Café-Brasserie\r\nLe passe temps\r\n" + format(DATENOW, "dd/MM/yy HH:mm") + "\r\n"
+		chaine : SEPARATOR <- "--------------------------------------------------"
+			
+		
+Procédure main()
+
+DEBUT :
+
+Déclarations :
+	Variables locales :
+		chaine : numTable <- ""
+		TabDynamique<entier[]> order 
+		
+		
+Instructions :
+	
+	numTable <- Utilities.getIntOrSpecificInputV2("Entrez le numéro de table (de " + MIN_TABLE + " à " + MAX_TABLE + ")/ Q (Quitter)", "Q", MIN_TABLE, MAX_TABLE)
+	SI(numTable = "Q") ALORS
+		Quitter()
+	Fin SI
+	
+	getOrder(order)
+	
+	createNewTicket(order, numTable)
+
+Fin main()
+
+
+
+Procédure createNewTicket(TabDynamique<Entier[]> order, entier : numberTable)
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+		chaine : ticketName <- getActualFormattedDateTime(DATEFORMAT)
+		booleen : fileCreated <- false
+
+Instructions :
+
+	fichier : f <-  NouveauFichier(PATHDIR + "\\" + ticketName + ".txt") 
+	fileCreated <- Utilities.fileCreation(f)
+	SI (fileCreated)ALORS
+	
+		file.ecrire (f, FAUX) 
+		
+		f.ecrire(ENTETE + "\r\n" + + "Table: " + numberTable + "\r\n" + SEPARATOR + "\r\n")
+		
+		POUR entier i allant de 0 a la taille de ord par pas de 1
+		    chaine: strNameArticle <- Names[ord(i)[0]]
+			strNameArticle <- Utilities.placeNumberToRank(strNameArticle, entier transforme en chaine.(ord(i)[1]), TAB_RANK[0])
+			strNameArticle <- Utilities.placeNumberToRank(strNameArticle, double transforme en chaine.(NETPRICES[ord(i)[0]]), TAB_RANK[1])
+			strNameArticle <- Utilities.placeNumberToRank(strNameArticle, double transforme en chaine.(NETPRICES[ord(i)[0]] * ord(i)[1]), TAB_RANK[2])
+			f.ecrire(strNameArticle + "\r\n")
+		Fin POUR 	
+        
+		f.ecrire("\r\n" + SEPARATOR+ "\r\n")
+		
+		POUR entier i de 0 a taille de ord par pas de 1
+		    entier : totalConso <- totalConso + ord(i)[1]
+		Fin POUR 
+		
+        f.ecrire(Utilities.placeNumberToRank("TOTAL CONSOMMATIONS", entier transforme en chaine.(totalConso), TAB_RANK[0]) + "\r\n")
+		
+        f.ercrire (SEPARATOR + "\r\n")
+		
+		
+		POUR i allant de 0 a taille(PCT_TVA) par pas de 1
+
+			chaine: strLineTVA <- "TOTAL TVA " + PCT_TVA[i] + "%"
+
+			strLineTVA <- Utilities.placeNumberToRank(strLineTVA,
+                         double transforme en chaine.(Utilities.AfficherMontantTVA(totalSelonTVA(i, ord))), TAB_RANK[1])
+
+			strLineTVA <- Utilities.placeNumberToRank(strLineTVA, totalSelonTVA(i, ord), TAB_RANK[2])
+
+			f.ecrire(strLineTVA + "\r\n")
+
+		Fin POUR
+        
+		f.ercrire("\r\n" + SEPARATOR + "\r\n")
+		
+		f.ecrire(Utilities.placeNumberToRank("TOTAL", totalAPayer(order) , TAB_RANK[taille(TAB_RANK)-1]) + "\r\n")
+
+		f.exit()
+		
+	Fin SI
+
+Fin fonction createNewTicket()
+
+
+
+Fonction totalSelonTVA(entier : TVA_INDEX, TabDynamique<Entier[]> order)  reel:
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+		reel totalTVA <- 0.0
+
+Instructions :
+	POUR i allant de 0 a taille(order) par pas de 1
+		SI (TYPE_TVA[order(i)[0]] = TVA_INDEX) ALORS
+			totalTVA <- totalTVA + (NETPRICES[order(i)[0]] * order(i)[1])
+		Fin SI
+	Fin POUR
+	
+	RETOURNER totalTVA
+		
+Fin totalSelonTVA()
+
+
+
+Fonction totalAPayer(TabDynamique<Entier[]> order) : chaine
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+		reel : totalFinal <- 0.0
+
+Instructions :
+	POUR i allant de 0 a taille(order) par pas de 1
+		totalFinal <- totalFinal + (NETPRICES[ord(i)[0]] * ord(i)[1])
+	Fin POUR
+
+	REOUTNER double transforme en chaine.(totalFinal)
+		
+Fin totalAPayer()
