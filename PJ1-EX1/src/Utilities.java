@@ -257,10 +257,8 @@ public class Utilities {
 				do {
 					System.out.println(question);
 					value = sc.nextInt();
-					if (value < min) {
-						System.out.println("Saisie incorrecte");
-					} else if (value > max) {
-						System.out.println("Saisie incorrecte ! Le nombre doit être inférieur ou égal " + max);
+					if (value < min || value > max) {
+						System.out.println("le nombre doit être compris entre : " + min + " et : " + max);
 					}
 				} while (value < min || value > max);
 				return value;
@@ -286,28 +284,6 @@ public class Utilities {
 
 		while (i < Nombres.length) {
 			if (inputNumber == Nombres[i]) {
-				return i;
-			}
-			i++;
-		}
-		return -1;
-	}
-
-	/**
-	 * 
-	 * Permet de retourner l'index du nombre rechercher OU -1 si le nombre n'est pas
-	 * dans le tableau
-	 * 
-	 * @param Nombres     Le tableau rempli de nombre sur lequel on souhaite faire
-	 *                    la recherche
-	 * @param inputNumber Le nombre que l'on recherche dans le tableau
-	 * @return index if found, -1 if not found
-	 */
-	static int isInTabV2(int inputNumber, int Nombres[][]) {
-		int i = 0;
-
-		while (i < Nombres.length) {
-			if (inputNumber == Nombres[i][0]) {
 				return i;
 			}
 			i++;

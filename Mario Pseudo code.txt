@@ -1,0 +1,184 @@
+Examen2
+
+CONSTANTES :
+
+	entier GAME_BOARD <- GAME_BOARD[5][7]
+	entier NBR_BOMBS <- 5
+	TabDynamique<entier[]> BOMB_POS
+	
+Procédure main()
+
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+		entier x_player <- arrondir inférieur(longueur(GAME_BOARD[0])/2)
+		entier y_player <- arrondir inférieur(longueur(GAME_BOARD)/2)
+
+Instructions :
+	
+	setBombsPositions(x_player, y_player)
+	showBombsPositions(x_player, y_player)
+	letsPlay(x_player, y_player)
+	
+	
+Fin main()
+
+Procédure setBombsPositions(entier : x_player, entier : y_player)
+
+DEBUT
+
+Déclarations :
+	
+	Variables locales :
+		entier tempBombX <- 0
+		entier tempBombY <- 0
+	
+Instructions : 
+
+	POUR i allant de 0 a NBR_BOMBS -1 par pas de 1
+	
+		REPETER 
+			tempBombX <- Utilities.randomInt(0, longueur(GAME_BOARD[0]))
+			tempBombY <- Utilities.randomInt(0, longueur(GAME_BOARD))
+		TANT QUE(isInTab(tempBombX, tempBombY, BOMB_POS) + (tempBombX = x_player . tempBombY = y_player))
+		
+		entier bombPos[] <- { tempBombY, tempBombX }
+
+		ajouter(bombPos) à BOMB_POS
+	
+	Fin POUR
+
+Fin setBombsPositions()
+
+
+Procédure showBombsPositions() 
+
+DEBUT
+	
+Déclarations :
+
+Instructions :
+	
+	setBombsPositions(entier : x_player, entier : y_player)
+	POUR i allant de 0 a NBR_BOMBS -1 par pas de 1
+	
+		Afficher("(" + BOMB_POS get(i)[1] + "," + BOMB_POS.get(i)[0] + ") ")
+		
+	Fin POUR
+	
+	Afficher à la ligne()
+
+Fin showBombsPositions()
+
+
+Procédure letsPlay(entier x_player, entier y_player)
+
+DEBUT
+
+Déclarations : 
+	Variables locales :		
+		chaine : playerMove <- ""
+		entier : tempX_player <- x_player
+		entier : tempY_player <- y_player
+
+Instructions :
+	
+	REPETER
+	playerMove <- Utilities.getUserSpecificInput("Position actuelle : (" + tempX_player + "," + tempY_player + ") déplacement RLUD/ ?", "RLUD")
+	
+	SI(playerMove <- "R") ALORS
+		tempX_player <- tempX_player + 1
+		
+	SI(playerMove <- "L") ALORS	
+		tempX_player <- tempX_player - 1
+		
+	SI(playerMove <- "U") ALORS	
+		tempY_player <- tempY_player + 1
+		
+	SI(playerMove <- "D") ALORS
+		tempY_player <- tempY_player - 1
+		
+	Fin SI
+	
+	TANT QUE(!isInTab(tempX_player, tempY_player) . (tempX_player > 0 . tempY_player > 0 . tempX_player < longueur(GAME_BOARD[0]) . tempY_player < longueur(GAME_BOARD)))
+	
+	SI(isInTab(entier tempX_player, entier tempY_player) = vrai ) ALORS
+	
+		Afficher("Bombe touchée - Vous avez perdu!")
+	
+	SINON
+	
+		Afficher("Félicitations, vous avez gagné !")
+		
+	Fin SI
+		
+Fin letsPlay()
+
+
+
+
+Fonction isInTab(x_player, y_player) : booleen
+
+DEBUT
+
+Déclarations :
+
+	Variables locales :
+		
+Instructions :
+
+	POUR entier i allant de 0 à longueur(BOMB_POS) -1 par pas de 1
+	
+		SI (y_player = BOMB_POS.get(i)[0]) ALORS
+		
+			SI(x_player = BOMB_POS.get(i)[1]) ALORS
+			
+				RETOURNER vrai
+			Fin SI
+			
+		Fin SI
+	
+	Fin POUR
+	
+	RETOURNER faux
+		
+Fin isInTab()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

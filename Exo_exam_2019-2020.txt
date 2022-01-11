@@ -1,0 +1,122 @@
+
+CONSTANTES  GLOBALES :
+chaine : SUBJECTS <- {"Math", "Sciences", "Français", "Géographie", "Histoire", "Philo", "Langues"}
+entier : WEIGHTS <- {6, 3, 4, 2, 2, 1, 4}
+chaine : STUDENTS <- {"Virginie Stella", "Jonathan Maes", "Jules Piler", "ReMi SolLaMi", "Mattheow Ô Casu", "Mellissa Biensescheveux", "Jereny Glauque", "Julien Fourien", "Beumier Tudor", "Jurassien Muraptor", "Corentin Fairelesot"}
+reel : RESULTS <- {{9.5, 10, 11, 10, 10, 10, 10}, {12, 12, 12, 14, 10, 13, 12}, {16, 16, 17, 15, 18, 17, 17}, {19, 20, 19, 20, 18, 18, 19}, {5, 11, 12, 20, 10, 11, 14}, {14, 14, 14, 15, 13, 15, 14}, {10, 11, 10, 11, 10, 10.5, 11}, {18, 17, 19, 15, 14, 16, 20}, {14, 15, 15, 15.5, 14, 13, 14.5}, {16, 14, 10, 2, 18, 15, 17}, {11, 12, 10, 10, 11, 11.5, 10}}
+
+
+Procédure main()
+
+DEBUT
+
+Déclarations :
+		Variables locales :
+		
+
+Instructions :
+	
+	checkFail()
+
+Fin main()
+
+
+Procédure checkFail()
+
+DEBUT
+
+Déclarations :
+	Variables locales :		
+		entier : totalPoid <- 0
+		reel : moyenne <- 0.0
+		chaine : nomEtMoyenne <- ""
+	
+Instructions :
+	totalPoid <- ponderationTotal(WEIGHTS)
+	
+	POUR entier i allant de 0 a longueur(RESULTS) - 1 par pas de 1
+		entier checkFailed <- 0
+		
+		POUR entier y allant de 0 a longueur(RESULTS[i]) - 1 par pas de 1
+			
+		
+			SI (RESULTS[i][y] < 10) ALORS
+			checkFailed <- checkFailed - 1
+			Fin SI
+		Fin POUR 
+		
+		SI (checkFailed = 0) ALORS
+		
+			moyenne <- calculMoyenne(RESULTS[i], totalPoid)
+			
+			nomEtMoyenne <- Utilities.placeNumberToRank(STUDENTS[i], moyenne,  25) + " " + checkGrade(moyenne)
+			
+			Afficher(nomEtMoyenne)
+			
+		Fin SI
+		
+	Fin POUR
+
+Fin checkFail()
+
+Fonction ponderationTotal(entier : poids[]) : entier
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+		entier : max <- 0
+
+Instructions :
+
+	POUR entier i allant de 0 à longueur(poids) - 1
+		max = max + poids[i]
+	
+	Fin POUR
+	
+	RETOURNER max
+	
+Fin ponderationTotal()
+
+
+Fonction calculMoyenne(reel : resultats[], entier maxPoid) : reel
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+		reel : totalPoint <- 0
+	
+Instructions :
+	POUR entier i allant de 0 à longueur(resultats) - 1 
+		
+		totalPoint <- totalPoint + resultats[i]*WEIGHTS[i]
+	
+	Fin POUR
+	
+	RETOURNER Formater 2 decimal max( (totalPoint / maxPoid) * 5)
+Fin calculMoyenne()
+
+
+Fonction checkGrade(reel : moyenne) : String
+
+DEBUT
+
+Déclarations :
+	Variables locales :
+
+Instructions :
+	SI(moyenne >= 60 . moyenne < 70) ALORS
+		RETOURNER "Satisfaction"
+	SINON SI(moyenne >= 70 . moyenne < 80)
+		RETOURNER "Distinction"
+	SINON SI(moyenne >= 80 . moyenne < 90)
+		RETOURNER "Grande distinction"
+	SINON SI(moyenne >= 90 . moyenne =< 100)
+		RETOURNER "La plus grande distinction"
+	SINON
+		RETOURNER ""
+	Fin SI
+
+Fin checkGrade()
+

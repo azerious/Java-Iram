@@ -1,0 +1,139 @@
+Lotto 
+
+CONSTANTES :
+	entier : WIN_NUMBERS[] <- [1,2,3,4,5,6]
+	TabDynamique<entier[]> PLAYED_NUMBERS
+	MIN_GRILLE_PLAYED <- 1
+	MAX_GRILLE_PLAYED <- 3
+	MIN_LOTTO_NUMBER <- 1
+	MAX_LOTTO_NUMBER <- 42
+	
+Procédure Main()
+
+	DEBUT :
+
+Déclarations :
+	Variables locales :
+		entier : nbrGrilles <- 1
+
+Instructions :
+
+	nbrGrilles <- Utilities.getUserIntegerInput("Combien de grilles voulez-vous jouer? " + MIN_GRILLE_PLAYED + " à " + MAX_GRILLE_PLAYED + " grilles", MIN_GRILLE_PLAYED, MAX_GRILLE_PLAYED)
+	setPLAYED_NUMBERS(nbrGrilles)
+	playLotto(nbrGrilles)
+	
+
+Fin Main()
+
+
+Procédure setPLAYED_NUMBERS(entier : nbrGrilles)
+
+DEBUT
+
+Déclarations :
+	
+	Variables locales :
+		entier tempNumber <- 0
+		booleen isInTab <- faux
+		
+Instructions : 
+	
+	POUR i allant de 0 a nbrGrilles -1 par pas de 1
+	
+		entier tempPLAYED_NUMBERS[] = nouveau entier [6]
+		ajouter(tempPLAYED_NUMBERS[]) à PLAYED_NUMBERS
+	
+		Afficher("------------- Grille N°" + (i+1) + " -------------")
+			
+		POUR j allant de 0 a longueur(WIN_NUMBERS) -1 par pas de 1
+		
+			REPETER 
+			
+				tempNumber <- Utilities.getUserIntegerInput("Entrez le nombre n° " + (j+1), MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER)
+				
+				isInTab <- Utilities.isInTab(tempNumber, PLAYED_NUMBERS.get(i))
+				
+				SI (isInTab = vrai) ALORS
+					Afficher("Ce nombre se trouve déjà dans la grille")
+					
+			TANT QUE(isInTab = vrai)
+			
+			entier tempPLAYED_NUMBERS[j] <- tempNumber
+
+		Fin POUR
+	
+		modifier(tempPLAYED_NUMBERS) à PLAYED_NUMBERS à l'index i
+	
+	Fin POUR
+
+Fin setPLAYED_NUMBERS()
+
+
+
+
+Procédure playLotto(entier : nbrGrilles)
+
+DEBUT
+
+Déclarations :
+	
+	Variables locales :
+		
+		
+Instructions : 
+
+	Afficher("---------- Résultat du Lotto ----------")
+	POUR i allant de 0 a nbrGrilles -1 par pas de 1
+		entier : nbrWIN_NUMBERS <- 0
+		
+		POUR j allant de 0 a longueur(PLAYED_NUMBERS.get(i))-1 par pas de 1
+		
+			SI(Utilities.isInTab((PLAYED_NUMBERS.get(i)[j], WIN_NUMBERS) = vrai) ALORS
+				nbrWIN_NUMBERS = nbrWIN_NUMBERS +1
+			Fin SI
+		
+		Fin POUR
+		
+		SI(nbrWIN_NUMBERS >= 3) ALORS 
+			
+			Afficher("La grille N°" + (i+1) + " remporte un " + nbrWIN_NUMBERS)
+			
+		SINON
+		
+			Afficher("La grille N°" + (i+1) + " ne gagne pas")
+			
+		Fin SI
+	
+	Fin POUR
+
+Fin playLotto()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
