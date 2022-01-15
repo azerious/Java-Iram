@@ -17,8 +17,6 @@ public class Exo_moyenne_test {
 		evaluationMsg_checkgrade_LaPlusGrandeDistinctionLimiteSup();
 		evaluation_ponderationTotaleMemePoids();
 		evaluation_ponderationTotaleDifferentPoids();
-		evaluation_calculMoyennePonderationEgale();
-		evaluation_calculMoyennePonderationDifferente();
 
 	}
 
@@ -126,20 +124,6 @@ public class Exo_moyenne_test {
 
 	}
 
-	public static void evaluation_calculMoyennePonderationEgale() {
-		int[] WEIGHTS = { 1, 1 };
-		double result = Exam_moyenne.calculMoyenne(results, 2, WEIGHTS);
-		String name = new Object() {
-		}.getClass().getEnclosingMethod().getName();
-		Assert.isTrue(name, 70, result, 0.01);
-	}
 
-	public static void evaluation_calculMoyennePonderationDifferente() {
-		int[] WEIGHTS = { 2, 1 };
-		double result = Exam_moyenne.calculMoyenne(results, 3, WEIGHTS);
-		String name = new Object() {
-		}.getClass().getEnclosingMethod().getName();
-		Assert.isTrue(name, 62.5, result, 0.01);
-	}
 
 }

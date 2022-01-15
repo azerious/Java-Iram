@@ -1,0 +1,311 @@
+
+public class Utilities {
+
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un
+	 * réel
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return retourne le réel demandé
+	 */
+	public static double getUserInputDouble(String question) 
+	
+	---------------------------------------------------------------------------------------
+	
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner une
+	 * phrase
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return retourne la phrase demandée
+	 */
+	public static String getUserInputString(String question)
+
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet d'envoyer un texte libre en paramètre en lecture et de retourner un
+	 * entier
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @return retourne l'entier demandé
+	 */
+	public static int getUserInputInteger(String question)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de retourner une valeur en ayant mis un min et un max OU -1 si la
+	 * valeur n'est pas comprise dans les extrémités
+	 * 
+	 * @param question Phrase libre que l'on envoie dans le Scanner
+	 * @param min      Valeur minimum
+	 * @param max      Valeur maximum
+	 * @return retourne l'entier demandé si compris entre min max OU retourne -1
+	 */
+	public static int getUserInputInteger(String question, int min, int max)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de calculer le prix net d'un prix
+	 * 
+	 * @param prixBrut Prix brut
+	 * @param TVA      Taux tva (en %)
+	 * @return retourne le prix NET d'un brut
+	 */
+	public static double ComputeNetPrice(double prixBrut, double TVA)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de calaculer le montant de la TVA à partir d'un prix NET
+	 * 
+	 * @param prixNet
+	 * @param tauxTVA
+	 */
+	public static double AfficherMontantTVA(double prixNet, double tauxTVA)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de vérifier si le numéro de table encodé est correct
+	 * 
+	 * @param NUM_MAX_TABLE Numéro de table Max
+	 * @return
+	 */
+	public static int getAndCheckTableNumber(int NUM_MAX_TABLE)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de retourner si une réponse est vraie ou non
+	 * 
+	 * @param question La question
+	 * @param answer   La réponse
+	 * @return retourne vrai/faux si la réponse donnée correspond à la réponse
+	 *         attendue (sans tenir compte des maj ou des espaces avant / après)
+	 */
+	public static boolean checkAnswer(String question, String answer)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * ask the user multiple choices of letters and only one answer can be chosen
+	 * will ask again if the answer is incorrect and return the right result
+	 * 
+	 * @param msg
+	 * @param expectedAnswers
+	 * @return
+	 */
+	public static String getUserSpecificInput(String msg, String expectedAnswers)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de boucler une question tant que le nombre rentré n'est pas compris
+	 * entre le minimum et le maximum
+	 * 
+	 * @param question La question
+	 * @param min      Nombre minimum accepté (inclus)
+	 * @param max      Nombre maximum accepté (inclus)
+	 * @return retourne l'entier demandé dans l'écart min max
+	 */
+	public static int getUserIntegerInput(String question, int min, int max)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * 
+	 * Permet de retourner l'index du nombre rechercher OU -1 si le nombre n'est pas
+	 * dans le tableau
+	 * 
+	 * @param Nombres     Le tableau rempli de nombre sur lequel on souhaite faire
+	 *                    la recherche
+	 * @param inputNumber Le nombre que l'on recherche dans le tableau
+	 * @return index if found, -1 if not found
+	 */
+	static int isInTab(int Nombres[], int inputNumber)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * 
+	 * Permet de retourner un booleen vrai/faux si le nombre recherché est dans le
+	 * tableau
+	 * 
+	 * @param Nombres     Le tableau rempli de nombre sur lequel on souhaite faire
+	 *                    la recherche
+	 * @param inputNumber Le nombre que l'on recherche dans le tableau
+	 * @return true if found, false if not found
+	 */
+	static boolean isInTab(int inputNumber, int Nombres[])
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * Permet de rechercher le maximum dans un tableau et de le retourner
+	 * 
+	 * @param Array Le tableau que l'on envoie
+	 * @return retourne le maximum du tableau
+	 */
+	static int getMax(int Array[]) 
+	
+	---------------------------------------------------------------------------------------
+	
+	/**
+	 * renvoie un nombre aléatoire entre un min et un max donné
+	 */
+	public static int randomInt(int min, int max) 
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * 
+	 * @param msg             Question posée
+	 * @param expectedAnswers liste des lettres acceptées comme réponse
+	 * @param min             valeur minimum acceptée
+	 * @param max             valeur maximum acceptée
+	 * @return renvoie le nombre rentré compris entre un minimum et un maximum en
+	 *         String ou la lettre rentré faisant partie des lettres autorisées
+	 */
+	public static String getUserIntOrSpecificInput(String msg, String expectedAnswers, int min, int max)
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * combine an original string with a decimal number placed after the string at a
+	 * specific rank to do a number's right alignment. Original string is completed
+	 * by spaces " "
+	 * 
+	 * @param strOriginalStr   : original string wich will be completed by the
+	 *                         number
+	 * @param strNumberToPlace : decimal number in string format to add at the end
+	 *                         of the original string
+	 * @param rank             : rank to place de last number's figure
+	 */
+	public static String placeNumberToRank(String strOriginalStr, String strNumberToPlace, int rank)
+	
+	---------------------------------------------------------------------------------------
+
+	public static void getOrder(ArrayList<int[]> ord) {
+		String answ = "";
+		int idCons = 0, numbCons = 0;
+
+		try {
+
+			do {
+				/*
+				 * le serveur ne peut valider la première fois (il n'y a pas encore de
+				 * consommations) l'invitation ne propose pas la validation si l'array list ne
+				 * contient encore rien
+				 */
+				answ = (ord.size() == 0)
+						? Utilities.getUserIntOrSpecificInput("Entrez le N° de la consommation " + "/" + Q + " Quitter",
+								Q, 1, NAMES.length)
+						: Utilities.getUserIntOrSpecificInput(
+								"Entrez le N° de la consommation " + "/" + Q + " Quitter /" + V + " Valider", Q + V, 1,
+								NAMES.length);
+
+				if (answ.equals(Q)) {
+					System.exit(1);
+
+				} else if (!answ.equals(V)) {
+
+					idCons = Integer.parseInt(answ) - 1;
+					answ = Utilities.getUserIntOrSpecificInput("Entrez le nombres de " + "consommations pour "
+							+ NAMES[idCons] + " " + A + "/ " + "Annuler /" + Q + " Quitter", Q + A, 1, 1000);
+					if (answ.equals(Q)) {
+						System.exit(1);
+					} else if (!answ.equals(A)) {
+
+						numbCons = Integer.parseInt(answ);
+
+						addToOrMergeOrder(ord, idCons, numbCons);
+					}
+				} // end if
+			} while (!answ.equals(V));
+		} catch (Exception e) {
+			System.out.println("Erreur" + e.getMessage());
+		}
+	}// end getOrder
+
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * vérifie que le nouvel identifiant de consommation ne se trouve pas déjà dans
+	 * la liste, si oui on ajoute à le nombre d'unités aux unités existantes (Merge)
+	 * pour cette consommation si pas on ajoute cette consommation à l'ArrayList ord
+	 * (addTo)
+	 * 
+	 * @param ord      ArrayList qui contient la commande en cours d'encodage
+	 * @param idCons   identifiant de la consommation à ajouter dans l'ArrayList ou
+	 *                 à trouver s'il existe déjà
+	 * @param numbCons nombre d'unités consommées correspondant à l'identificateur
+	 *                 de consommation.
+	 */
+	private static void addToOrMergeOrder(ArrayList<int[]> ord, int idCons, int numbCons) {
+
+		int indexAlreadyInOrder = isAlreadyInOrder(ord, idCons);
+
+		if (indexAlreadyInOrder == -1) { // identifiant de consommation pas déjà dans la liste, on l'ajoute à la
+											// commande en cours.
+
+			int orderLine[] = { idCons, numbCons };// création d'un nouveau tableau (une ligne ->1 consommation)
+													// à ajouter dans l'ArrayList
+			ord.add(orderLine);
+
+		} else {
+
+			ord.get(indexAlreadyInOrder)[1] = ord.get(indexAlreadyInOrder)[1] + numbCons;
+		} // endif
+	}// end addToOrMergeOrder
+
+	/**
+	 * détermine si un identifiant de consommation se trouve déjà dans la commande
+	 * en cours
+	 * 
+	 * @param ord    ArrayList qui contient la commande en cours d'encodage
+	 * @param idCons identifiant de la consommation à trouver éventuellement dans la
+	 *               commande en cours
+	 * @return -1 si pas trouvé, index position dans le tableau si trouvé
+	 */
+	public static int isAlreadyInOrder(ArrayList<int[]> ord, int idCons) 
+	
+	---------------------------------------------------------------------------------------
+
+	/**
+	 * crée le fichier passé en paramètre via le chemin strPath et renvoie true si
+	 * la création a réussi
+	 * 
+	 * @param f
+	 * @param strPath
+	 * @return
+	 */
+	public static boolean fileCreation(File f) {
+		boolean creation_of_file = false;
+		try {
+			f.createNewFile();
+			creation_of_file = true;
+		} catch (Exception e) {
+			System.out.println("Chemin de destination invalide");
+			creation_of_file = false;
+		} // end catch
+		return creation_of_file;
+	}// end fileCreation
+
+	/**
+	 * renvoie la date heure actuelle dans un format comme Time_form choisi et passé
+	 * en paramètre
+	 * 
+	 * @param Time_form
+	 * @return
+	 */
+	public static String getActualFormattedDateTime(String Time_form) {
+
+		SimpleDateFormat SmplDateFrmt = new SimpleDateFormat(Time_form);
+		Calendar cldr = Calendar.getInstance();
+		return SmplDateFrmt.format(cldr.getTime());
+	}// end getActualFormattedDateTime
+
+}

@@ -15,7 +15,7 @@ Intructions :
    
    POUR i allant de 0 à 10 par pas de +1
    
-	Afficher("N° du lot " + (i+1) + " Numéro de billet " + tickets[i]
+	Afficher("N° du lot " + (i+1) + " Numéro de billet " + tickets[i])
    
    Fin POUR
 	
