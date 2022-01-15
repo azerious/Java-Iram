@@ -4,6 +4,11 @@ public class Exam_moyenne {
 
 	final static String FORMAT = "0.00";
 	final static int noteMax = 20;
+
+	final static String format = "0.00";
+
+	static DecimalFormat DfFormat = new DecimalFormat(format);
+
 	final static String[] SUBJECTS = { "Math", "Sciences", "Français", "Géographie", "Histoire", "Philo", "Langues" };
 	final static int[] WEIGHTS = { 6, 3, 4, 2, 2, 1, 4 };
 	final static String[] STUDENTS = { "Virginie Stella", "Jonathan Maes", "Jules Piler", "ReMi SolLaMi",
